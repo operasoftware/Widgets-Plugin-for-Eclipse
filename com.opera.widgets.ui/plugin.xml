@@ -1,0 +1,301 @@
+<?eclipse version="3.4"?>
+<plugin
+>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="com.opera.widgets.ui.widgetsCategory"
+            name="Widgets">
+      </category>
+      <wizard
+            canFinishEarly="false"
+            category="com.opera.widgets.ui.widgetsCategory"
+            class="com.opera.widgets.ui.wizard.W3CProjectNewWizard"
+            descriptionImage="icons/32px.png"
+            finalPerspective="com.opera.widgets.perspective"
+            hasPages="true"
+            icon="icons/16px.png"
+            id="com.opera.widgets.ui.new.w3cProject"
+            name="W3C Widget Project"
+            project="true">
+            <selection class="org.eclipse.core.resources.IResource" />
+         <description>
+            Creates W3C Widget project.
+         </description>
+      </wizard>
+      <wizard
+            canFinishEarly="false"
+            category="com.opera.widgets.ui.widgetsCategory"
+            class="com.opera.widgets.ui.wizard.WACProjectNewWizard"
+            descriptionImage="icons/32px.png"
+            finalPerspective="com.opera.widgets.perspective"
+            hasPages="true"
+            icon="icons/16px.png"
+            id="com.opera.widgets.ui.new.wacProject"
+            name="WAC Widget Project"
+            project="true">
+            <selection class="org.eclipse.core.resources.IResource" />
+         <description>
+            Creates W3C Widget project.
+         </description>
+      </wizard>
+       <wizard
+             canFinishEarly="true"
+             class="com.opera.widgets.ui.wizard.NewHTMLWizard"
+             id="com.opera.widgets.ui.wizard.NewHTMLWizard"
+             name="HTML File"
+             project="false">
+       </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.exportWizards">
+      <category
+            id="com.opera.widgets.ui.widgetsExport"
+            name="Widgets">
+      </category>
+      <wizard
+            category="com.opera.widgets.ui.widgetsExport"
+            class="com.opera.widgets.ui.wizard.export.WidgetExportWizard"
+            icon="icons/16px.png"
+            id="com.opera.widgets.ui.exportWizard"
+            name="Widget package (.wgt)">
+            <selection
+                  class="org.eclipse.core.resources.IProject">
+            </selection>
+            <description>
+               Export project as a Widget package.
+            </description>
+      </wizard>
+      
+   </extension>
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <category
+            id="com.opera.widgets.ui.widgetsImport"
+            name="Widgets">
+      </category>
+      <wizard
+            category="com.opera.widgets.ui.widgetsImport"
+            class="com.opera.widgets.ui.wizard.imports.W3CWidgetImportWizard"
+            icon="icons/16px.png"
+            id="com.opera.widgets.ui.w3cImportWizard"
+            name="W3C Widget package (.wgt)">
+         <selection
+               class="org.eclipse.core.resources.IProject">
+         </selection>
+         <description>
+            Create new project from existing W3C Widget package.
+         </description>
+      </wizard>
+            <wizard
+            category="com.opera.widgets.ui.widgetsImport"
+            class="com.opera.widgets.ui.wizard.imports.WACWidgetImportWizard"
+            icon="icons/16px.png"
+            id="com.opera.widgets.ui.wacImportWizard"
+            name="WAC Widget package (.wgt)">
+         <selection
+               class="org.eclipse.core.resources.IProject">
+         </selection>
+         <description>
+            Create new project from existing W3C Widget package.
+         </description>
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="com.opera.widgets.ui.WidgetPerspectiveFactory"
+            icon="icons/16px.png"
+            id="com.opera.widgets.perspective"
+            name="Widgets" fixed="false">
+      </perspective>
+   </extension>
+   <extension point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension targetID="com.opera.widgets.perspective">
+      		<newWizardShortcut
+              id="com.opera.widgets.ui.new.w3cProject">
+      		</newWizardShortcut>
+      		<newWizardShortcut
+              id="com.opera.widgets.ui.new.wacProject">
+      		</newWizardShortcut>
+			<newWizardShortcut id="org.eclipse.wst.css.ui.internal.wizard.NewCSSWizard" />
+			<newWizardShortcut id="com.opera.widgets.ui.wizard.NewHTMLWizard" />
+			<newWizardShortcut id="org.eclipse.wst.xml.ui.internal.wizards.NewXMLWizard" />
+			<newWizardShortcut id="org.eclipse.wst.jsdt.ui.NewJSWizard" />
+   <actionSet
+         id="org.eclipse.debug.ui.launchActionSet">
+   </actionSet>
+   <view
+         closeable="true"
+         id="org.eclipse.ui.views.ProblemView"
+         minimized="false"
+         moveable="true"
+         ratio="0.7"
+         relationship="bottom"
+         relative="org.eclipse.ui.editorss"
+         showTitle="true"
+         standalone="false"
+         visible="true">
+   </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.ide.projectNatureImages">
+      <image
+            icon="icons/12px.png"
+            id="com.opera.widgets.ui.icon"
+            natureId="com.opera.widgets.ui.w3cWidgetNature">
+      </image>
+            <image
+            icon="icons/12px.png"
+            id="com.opera.widgets.ui.icon"
+            natureId="com.opera.widgets.ui.wacWidgetNature">
+      </image>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            id="com.opera.widgets.ui.contribution"
+            nameFilter="*"
+            objectClass="org.eclipse.core.resources.IProject">
+         <action
+               class="com.opera.widgets.ui.ToggleW3CNatureAction"
+               enablesFor="+"
+               icon="icons/16px.png"
+               id="com.opera.widgets.ui.addRemoveW3CNatureAction"
+               label="Add/Remove W3C Widget Nature"
+               menubarPath="additions">
+               <enablement>
+				<not>
+				<objectState
+                     name="projectNature"
+                     value="com.opera.widgets.ui.wacWidgetNature">
+               </objectState>
+				</not>               
+               </enablement>
+         </action>
+      </objectContribution>
+      <objectContribution
+            adaptable="true"
+            id="com.opera.widgets.ui.contribution"
+            nameFilter="*"
+            objectClass="org.eclipse.core.resources.IProject">
+         <action
+               class="com.opera.widgets.ui.ToggleWACNatureAction"
+               enablesFor="+"
+               icon="icons/16px.png"
+               id="com.opera.widgets.ui.addRemoveWACNatureAction"
+               label="Add/Remove WAC Widget Nature"
+               menubarPath="additions">
+               <enablement>
+				<not>
+				<objectState
+                     name="projectNature"
+                     value="com.opera.widgets.ui.w3cWidgetNature">
+               </objectState>
+				</not>               
+               </enablement>
+         </action>
+      </objectContribution>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="com.opera.widgets.ui.editor.ConfigEditor"
+            contributorClass="com.opera.widgets.ui.editor.ConfigEditorActionBarContributor"
+            default="true"
+            icon="icons/16px.png"
+            id="com.opera.widgets.ui.configeditor"
+            name="Widget Config Editor">
+         <contentTypeBinding
+               contentTypeId="com.opera.widgets.config">
+         </contentTypeBinding>
+      </editor>
+   </extension>
+<extension
+      point="org.eclipse.ui.navigator.navigatorContent">
+   <commonWizard
+         type="new"
+         wizardId="org.eclipse.wst.css.ui.internal.wizard.NewCSSWizard">
+         <enablement>
+         </enablement>
+   </commonWizard>
+   <commonWizard
+         type="new"
+         wizardId="com.opera.widgets.ui.wizard.NewHTMLWizard">
+         <enablement>
+         </enablement>
+         
+   </commonWizard>
+   <commonWizard
+         type="new"
+         wizardId="org.eclipse.wst.jsdt.ui.NewJSWizard">
+         <enablement>
+         </enablement>
+   </commonWizard>
+</extension>
+<extension
+      point="org.eclipse.debug.ui.launchShortcuts">
+      
+   <shortcut
+         class="com.opera.widgets.ui.launcher.WidgetLaunchShortcut"
+         icon="icons/16px.png"
+         id="com.opera.widgets.ui.launcher.widgetLaunch"
+         label="Widget"
+         modes="run,debug">
+      <contextualLaunch>
+         <enablement>
+         	<with variable="selection">
+				<count value="1"/>
+			</with>
+         </enablement>
+      </contextualLaunch>
+      
+   </shortcut>
+</extension>
+<extension
+      point="org.eclipse.ui.preferencePages">
+   <page
+         class="com.opera.widgets.ui.preference.WidgetsPreferencePage"
+         id="com.opera.widgets.ui.widgetsPreferencePage"
+         name="Widgets">
+   </page>
+   <page
+         category="com.opera.widgets.ui.widgetsPreferencePage"
+         class="com.opera.widgets.ui.preference.ExportPreferencePage"
+         id="com.opera.widgets.ui.exportPreferencePage"
+         name="Export">
+   </page>
+   <page
+         category="com.opera.widgets.ui.widgetsPreferencePage"
+         class="com.opera.widgets.ui.preference.EmulatorPreferencePage"
+         id="com.opera.widgets.ui.emulatorPreferencePage"
+         name="Emulator">
+   </page>
+</extension>
+
+
+<extension
+      point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+   <launchConfigurationTabGroup
+         class="com.opera.widgets.ui.launcher.WidgetLauncherTabGroup"
+         id="WidgetsEclipsePlugin.launchConfigurationTabGroup2"
+         type="com.opera.widgets.core.widgetLaunchConfigurationType">
+      <launchMode
+            mode="run"
+            perspective="com.opera.widgets.perspective">
+      </launchMode>
+   </launchConfigurationTabGroup>
+</extension>
+<extension
+      point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+   <launchConfigurationTypeImage
+         configTypeID="WidgetsEclipsePlugin.launchConfigurationTypeImage1"
+         icon="icons/16px.png"
+         id="com.opera.widgets.launchConfiguration.widgetImage">
+   </launchConfigurationTypeImage>
+</extension>
+   
+</plugin>

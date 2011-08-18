@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" 
+ targetNamespace="http://www.w3.org/2005/11/its" 
+ xmlns:its="http://www.w3.org/2005/11/its" 
+ xmlns:widgets="http://www.w3.org/ns/widgets">
+ 
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <xs:import namespace="http://www.w3.org/ns/widgets" schemaLocation="widget.xsd"/>
+  <xs:attribute name="dir">
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="ltr"/>
+        <xs:enumeration value="rtl"/>
+        <xs:enumeration value="lro"/>
+        <xs:enumeration value="rlo"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+</xs:schema>

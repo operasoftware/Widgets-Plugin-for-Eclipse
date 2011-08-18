@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="com.opera.widgets.builder.widgetBuilder"
+         name="Widget Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            callOnEmptyDelta="false"
+            hasNature="false"
+            isConfigurable="true">
+         <run
+               class="com.opera.widgets.core.builder.ConfigConsistencyChecker">
+         </run>
+      </builder>
+   </extension>
+   <extension
+      point="org.eclipse.core.runtime.preferences">
+   <initializer
+         class="com.opera.widgets.core.preference.WidgetPreferenceInitializer">
+   </initializer>
+	</extension>
+   
+      <extension
+         id="com.opera.widgets.ui.w3cWidgetNature"
+         name="W3C Widget Project Nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="com.opera.widgets.core.natures.W3CWidgetNature">
+         </run>
+      </runtime>
+      <content-type
+            id="com.opera.widgets.config">
+      </content-type>
+      <builder
+            id="com.opera.widgets.builder.widgetBuilder">
+      </builder>
+   </extension>
+    <extension
+         id="com.opera.widgets.ui.wacWidgetNature"
+         name="WAC Widget Project Nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="com.opera.widgets.core.natures.WACWidgetNature">
+         </run>
+      </runtime>
+      <content-type
+            id="com.opera.widgets.config">
+      </content-type>
+      <builder
+            id="com.opera.widgets.builder.widgetBuilder">
+      </builder>
+   </extension>
+      <extension
+	point="org.eclipse.core.contenttype.contentTypes">
+		<content-type
+        base-type="org.eclipse.core.runtime.xml"
+        describer="org.eclipse.core.runtime.content.XMLRootElementContentDescriber:widget"
+        file-names="config.xml"
+        id="com.opera.widgets.config"
+        name="Widget Config File"
+        priority="high">
+  </content-type>
+	</extension>
+   
+   <extension
+      id="problem"
+      name="Widget Problem"
+      point="org.eclipse.core.resources.markers">
+   <super
+         type="org.eclipse.wst.validation.problemmarker">
+   </super>
+         <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.core.resources.textmarker"/>
+   <persistent
+         value="true">
+   </persistent>
+</extension>
+   <extension
+         point="org.eclipse.wst.xml.core.catalogContributions">
+      <catalogContribution>
+         <uri name="http://www.w3.org/ns/widgets"
+               uri="resources/wac-xsd/widget.xsd">
+         </uri></catalogContribution>
+   </extension>
+  <!-- <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="com.opera.widgets.core.launching.WidgetLaunchConfigurationDelegate"
+            id="com.opera.widgets.core.widgetLaunchConfigurationType"
+            modes="run, debug"
+            name="Widgets"
+            public="true">
+      </launchConfigurationType>
+   </extension>-->
+</plugin>

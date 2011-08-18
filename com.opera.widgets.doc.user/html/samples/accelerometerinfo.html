@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Title</title>
+</head>
+
+<body>
+<h2>Title</h2>
+<h3>Accelerometer</h3>
+
+<p>The <code>AccelerometerInfo</code> object can be used to get
+information from a device's accelerometer. We can read accelerations on
+three axes (X, Y, Z) using the following code:</p>
+
+<pre><code>Widget.Device.DeviceStateInfo.AccelerometerInfo.xAxis
+Widget.Device.DeviceStateInfo.AccelerometerInfo.yAxis
+Widget.Device.DeviceStateInfo.AccelerometerInfo.zAxis</code></pre>
+
+<p>The unit for returned values are m/s² (meters per second squared,
+the standard SI unit for acceleration). If you place your device flat on
+a table it should report -9,8 m/s² on the <code>zAxis</code>.</p>
+
+<p class="note">IMPORTANT: because acceleration information changes
+very quickly as the device is moved around, all values are retrieved and
+stored when you read the <code>xAxis</code>. This way you can be sure
+that all values are from the exact same moment, but you have to remember
+to always read the <code>xAxis</code> value first.</p>
+
+<p>See the <a
+	href="http://dev.opera.com/articles/view/building-a-widget-with-wac/">Building
+a spirit level widget using WAC 1.0</a> article for a real accelerometer
+example. you can also <a href="http://widgets.opera.com/widget/21124/" target="_blank">download
+a working accelerometer demo, with sources</a>.</p>
+</body>
+</html>

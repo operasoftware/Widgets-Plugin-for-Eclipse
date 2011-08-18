@@ -1,0 +1,17 @@
+http://jil.org/jil/api/1.1/accelerometerinfo;http://jil.org/jil/api/1.1/devicestateinfo;http://jil.org/jil/api/1.1/device;http://jil.org/jil/api/1.1/widget
+http://jil.org/jil/api/1.1.5/applicationtypes;http://jil.org/jil/api/1.1/device;http://jil.org/jil/api/1.1/widget
+http://jil.org/jil/api/1.1/audioplayer;http://jil.org/jil/api/1.1/multimedia;http://jil.org/jil/api/1.1/widget
+http://jil.org/jil/api/1.1.2/camera;http://jil.org/jil/api/1.1/multimedia;http://jil.org/jil/api/1.1/widget
+http://jil.org/jil/api/1.1/device;http://jil.org/jil/api/1.1/widget
+http://jil.org/jil/api/1.1/devicestateinfo;http://jil.org/jil/api/1.1/device;http://jil.org/jil/api/1.1/widget
+http://jil.org/jil/api/1.1.5/exception;http://jil.org/jil/api/1.1/widget
+http://jil.org/jil/api/1.1.5/exceptiontypes;http://jil.org/jil/api/1.1/widget
+http://jil.org/jil/api/1.1/message;http://jil.org/jil/api/1.1/messaging;http://jil.org/jil/api/1.1/widget
+http://jil.org/jil/api/1.1/messagetypes;http://jil.org/jil/api/1.1/messaging;http://jil.org/jil/api/1.1/widget
+http://jil.org/jil/api/1.1/messaging;http://jil.org/jil/api/1.1/widget
+http://jil.org/jil/api/1.1.4/messagefoldertypes
+http://jil.org/jil/api/1.1/multimedia;http://jil.org/jil/api/1.1/widget
+http://jil.org/jil/api/1.1.1/pim;http://jil.org/jil/api/1.1/widget
+http://jil.org/jil/api/1.1/positioninfo;http://jil.org/jil/api/1.1/device;http://jil.org/jil/api/1.1/widget
+http://jil.org/jil/api/1.1/widget
+http://jil.org/jil/api/1.1.1/widgetmanager

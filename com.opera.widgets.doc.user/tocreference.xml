@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Reference" link_to="toc.xml#reference"> 
+	<topic label="Widgets Specification">
+    <topic href="http://www.w3.org/TR/widgets/" label="W3C Widget Packaging and Configuration">
+    </topic>
+    <topic href="http://dev.w3.org/2006/waf/widgets-vmmf/" label="W3C View Modes">
+    </topic>
+    <topic href="http://www.w3.org/TR/widgets-access" label="W3C Widget - Access Request Policy">
+    </topic>
+	</topic>
+ <topic label="WAC Specification">
+     <topic href="http://213.171.204.148/API.html" label="WAC - Widget Handset API">
+    </topic>
+     <topic href="http://www.jil.org/web/jil" label="WAC - Developer Website">
+     </topic> 
+ </topic>
+</toc>

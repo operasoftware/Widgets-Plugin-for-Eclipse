@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contexts>
+	<context id="config_overview">
+		<description>The Overview tab shows basic information of a Widget.</description>
+  <topic href="html/concepts/configeditor/overview.html" label="The Config Editor - Overview"/>
+		<topic href="http://www.w3.org/TR/widgets/" label="W3C Widgets Specification"/>
+	</context>
+	<context id="config_icons">
+		<description>The Icons shows icons associated with a Widget.</description>
+  <topic href="html/concepts/configeditor/icons.html" label="Config Editor - Icons"/>
+		<topic href="http://www.w3.org/TR/widgets/" label="W3C Widgets Specification"/>
+	</context>
+ <context id="config_features">
+    <description>The Features shows features what will be used by a Widget.</description>
+    <topic href="html/concepts/configeditor/features.html" label="Config Editor - Features"/>
+    <topic href="http://www.w3.org/TR/widgets" label="W3C Widgets Specification"/>
+    <topic href="http://213.171.204.148/API.html" label="WAC Handset API"/>
+ </context>
+ <context id="config_preferences">
+    <description>The Preferences tab lets you define name-value pairs that will be associated with the widget first time the widget is started.</description>
+    <topic href="html/concepts/configeditor/preferences.html" label="Config Editor - Preferences"/>
+    <topic href="http://www.w3.org/TR/widgets" label="W3C Widgets Specification"/>
+ </context>
+ <context id="config_access">
+    <description>Access tab let's author define security policy for accessing network resources.</description>
+    <topic href="html/concepts/configeditor/access.html" label="Config Editor - Access"/>
+    <topic href="http://www.w3.org/TR/widgets" label="W3C Widgets Specification"/>
+ </context>
+ <context id="config_about">
+    <description>This tab contains information about author of a Widget and licensing details.</description>
+    <topic href="html/concepts/configeditor/about.html" label="Config Editor - About"/>
+    <topic href="http://www.w3.org/TR/widgets" label="W3C Widgets Specification"/>
+ </context>
+  <context id="config_source">
+    <description>This tab contains source code of widget's configuration file.</description>
+    <topic href="html/concepts/configeditor/source.html" label="Config Editor - Source"/>
+    <topic href="http://www.w3.org/TR/widgets" label="W3C Widgets Specification"/>
+ </context>
+</contexts>

@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>Camera</title>
+   </head>
+
+   <body>
+<h2>Camera</h2>
+
+<p>The <code>Camera</code> object is arguably one of the most interesting WAC features. It allows us to take photos and provide real-time camera previews in your widget. For example we could create a widget to take photos and instantly sharing them on <a href="http://myopera.com">MyOpera</a> or <a href="http://flickr.com">Flickr</a>. The first thing we need to do to get a camera preview is to create an <code>&lt;object&gt;</code> element in which to render the preview (it has to be an <code>&lt;object&gt;</code> element.)
+</p>
+
+<p>
+A simple <code>index.html</code> to do this could look like so:
+</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;script type="text/javascript" src="js/camera.js"&gt;&lt;/script&gt;
+    &lt;style type="text/css"&gt;
+        #preview {
+            width: 300px;
+            height: 300px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;object id="preview"&gt;&lt;/object&gt;
+    &lt;button id="shoot"&gt;take photo&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<p>
+This will create a document containing a 300 x 300px preview window and a button to press to capture an image.
+</p>
+
+<p>
+Now, for some JavaScript to handle the functionality, in the attached <code>camera.js</code> file we could write:
+</p>
+
+<pre><code>
+window.addEventListener('load',function(){
+    
+    //set preview window to #preview <object>
+    Widget.Multimedia.Camera.setWindow(document.getElementById('preview'));
+    
+    //callback function called when taking photo succeeded
+    Widget.Multimedia.Camera.onCameraCaptured = function(filename){
+        alert(filename);
+    }
+    
+    //setting button onclick event 
+    document.getElementById('shoot').addEventListener('click',function(){
+        Widget.Multimedia.Camera.captureImage(null, false);
+    }, false);
+    
+},false);</object></code></pre>
+
+<p>
+So, when this widget is run on a supporting device, it gives us a real time camera preview. When the “take photo” button is clicked, it will save the image in the default location (we can specify the desired path using the first parameter of the <code>captureImage</code> method) and call the <code>onCameraCaptured</code> callback function to display an alert containing the image path. We can display it in a widget using this path — we just need to remember to add <code>file://</code> in front of it. 
+</p>
+
+<p>
+<a href="http://widgets.opera.com/widget/21144/" target="_blank">Download a working camera demo, with sources</a>. 
+</p>
+   </body>
+</html>

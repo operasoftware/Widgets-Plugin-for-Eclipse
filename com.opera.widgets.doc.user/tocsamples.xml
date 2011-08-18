@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Samples" link_to="toc.xml#samples"> 
+	   <topic label="WAC Samples">
+       <topic href="html/samples/overview.html" label="Overview">
+       </topic>
+       <topic href="html/samples/accelerometerinfo.html" label="Accelerometer info">
+       </topic>
+       <topic href="html/samples/audio.html" label="Audio">
+       </topic>
+       <topic href="html/samples/camera.html" label="Camera">
+       </topic>
+       <topic href="html/samples/positioninfo.html" label="Position Info">
+       </topic>
+       <topic href="html/samples/messaging.html" label="Messaging">
+       </topic>
+      </topic>
+</toc>

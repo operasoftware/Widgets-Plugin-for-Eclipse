@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Concepts" link_to="toc.xml#concepts"> 
+	<topic label="Config File Editor"  href="html/concepts/configfileeditor.html">
+    <topic href="html/concepts/configeditor/overview.html" label="Basic Widget information">
+    </topic>
+    <topic href="html/concepts/configeditor/icons.html" label="Icons">
+    </topic>
+    <topic href="html/concepts/configeditor/features.html" label="Features">
+    </topic>
+    <topic href="html/concepts/configeditor/preferences.html" label="Preferences">
+    </topic>
+    <topic href="html/concepts/configeditor/access.html" label="Access">
+    </topic>
+    <topic href="html/concepts/configeditor/about.html" label="About">
+    </topic>
+    <topic href="html/concepts/configeditor/source.html" label="Source">
+    </topic> 
+	</topic>
+</toc>

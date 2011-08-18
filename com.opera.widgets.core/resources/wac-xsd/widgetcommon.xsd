@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified"
+	targetNamespace="http://www.w3.org/2005/11/common"
+	xmlns:its="http://www.w3.org/2005/11/its"
+	xmlns:widgets="http://www.w3.org/ns/widgets"
+	xmlns:common="http://www.w3.org/2005/11/common">
+
+  	<xs:import schemaLocation="local.xsd"/>
+  	<xs:import namespace="http://www.w3.org/2005/11/its" schemaLocation="its.xsd"/>
+  	<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  	
+	<xs:group name="anyElement">
+		<xs:sequence>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:any namespace="##local" processContents="skip" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="any">
+		<xs:sequence>
+			<xs:group minOccurs="0" maxOccurs="unbounded"
+				ref="common:anyElement" />
+		</xs:sequence>
+	</xs:group>
+	<xs:attributeGroup name="any">
+		<xs:anyAttribute processContents="skip" />
+	</xs:attributeGroup>
+	<xs:attributeGroup name="attr.allowed">
+		<xs:attributeGroup ref="local" />
+	</xs:attributeGroup>
+	<xs:attributeGroup name="attr.xmllang">
+		<xs:attribute ref="xml:lang" use="required" />
+	</xs:attributeGroup>
+	<xs:attributeGroup name="attr.itsdir">
+		<xs:attribute ref="its:dir" use="required" />
+	</xs:attributeGroup>
+
+	<xs:simpleType name="data.positiveNumber">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[1-9]\d*" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="data.boolean">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="true" />
+			<xs:enumeration value="false" />
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>

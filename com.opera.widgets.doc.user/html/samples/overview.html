@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>Main Topic</title>
+</head>
+
+<body>
+<p>WAC talks about the use of <code>&lt;feature&gt;</code> elements, which are additional elements added to a <code>config.xml</code> file in order to provide information about what kind of APIs a widget wants to access. This allows the Widget Manager to inform users what the widget being installed is able to do. This alleviates potential privacy issues. For example, when you install a widget for browsing feeds you might get suspicious if it requests access to camera, messaging or geolocation.
+</p>
+
+<p>
+A widget <code>config.xml</code> that makes use of WAC features looks something like this:
+</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;widget xmlns="http://www.w3.org/ns/widgets" xmlns:JIL="http://www.jil.org/ns/widgets1.2"&gt;
+    &lt;JIL:access localfs="true" /&gt;
+    &lt;name&gt;Demo Widget&lt;/name&gt;
+    &lt;icon&gt;icon.png&lt;/icon&gt;
+    
+    &lt;feature name="http://jil.org/jil/api/1.1/widget" required="true"/&gt;
+    &lt;feature name="http://jil.org/jil/api/1.1/multimedia" required="true"/&gt;
+    &lt;feature name="http://jil.org/jil/api/1.1.2/camera" required="true"/&gt;
+&lt;/widget&gt;</code></pre>
+
+<p>
+In this example, to use <code>Camera</code>, we are referencing three <code>features</code>: Widget, Multimedia and Camera. This is because the <code>Camera</code> object is part of the <code>Multimedia<code> object, and <code>Multimedia</code> is part of the top-level <code>Widget</code> object. We need all three to use the <code>Camera</code> object.
+</code></code></p>
+
+<p>
+Also, note the extra name space included in the document above: <code>xmlns:JIL="http://www.jil.org/ns/widgets1.2"</code>. This is the JIL namespace, which is included so we can use some elements not defined by WAC. In this example, we have added <code>&lt;JIL:access localfs="true" /&gt;</code>, which means that the widget will have access to the local file system.
+</p>
+</body>
+</html>

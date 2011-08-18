@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  targetNamespace="http://www.jil.org/ns/widgets1.2"
+  xmlns:widgets="http://www.w3.org/ns/widgets"
+  xmlns:common="http://www.w3.org/2005/11/common"
+  xmlns:jil="http://www.jil.org/ns/widgets1.2">
+
+  <xs:import namespace="http://www.w3.org/2005/11/common" schemaLocation="widgetcommon.xsd"/>
+
+  <xs:element name="billing">
+    <xs:complexType mixed="true">
+        <xs:attribute  name="required" type="common:data.boolean"/>
+    </xs:complexType>
+  </xs:element>
+
+   <xs:element name="access">
+    <xs:complexType>
+      <xs:attributeGroup ref="common:attr.allowed"/>
+      <xs:attribute name="network" type="common:data.boolean"/>
+      <xs:attribute name="localfs" type="common:data.boolean"/>
+      <xs:attribute name="remote_scripts" type="common:data.boolean"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="maximum_display_mode">
+    <xs:complexType>
+      <xs:attributeGroup ref="common:attr.allowed"/>
+      <xs:attribute name="height" type="common:data.positiveNumber"/>
+      <xs:attribute name="width" type="common:data.positiveNumber"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="update">
+    <xs:complexType>
+      <xs:attributeGroup ref="common:attr.allowed"/>
+      <xs:attribute name="href" type="xs:anyURI"/>
+      <xs:attribute name="period">
+        <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="0"/>
+                <xs:enumeration value="1"/>
+                <xs:enumeration value="2"/>
+                <xs:enumeration value="3"/>
+              </xs:restriction>
+         </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

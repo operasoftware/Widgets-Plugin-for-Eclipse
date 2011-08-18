@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tests
+Bundle-SymbolicName: com.opera.widgets.core.tests
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.opera.widgets.core.tests.Activator
+Bundle-Vendor: OPERA
+Require-Bundle: org.eclipse.core.runtime,
+ org.junit4;bundle-version="4.8.1",
+ com.opera.widgets.core;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

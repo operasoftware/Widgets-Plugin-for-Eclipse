@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Getting Started" link_to="toc.xml#gettingstarted">
+   <topic href="html/gettingstarted/creatingwidgetproject.html" label="Creating the widget project">
+   </topic>
+   <topic href="html/gettingstarted/importingwidgetpackage.html" label="Importing widget package">
+   </topic>
+   <topic href="html/gettingstarted/exportingwidgetpackage.html" label="Exporting Widget into Widget package">
+   </topic> 
+</toc>

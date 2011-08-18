@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Position info</title>
+</head>
+
+<body>
+<h2>Position info</h2>
+
+<p>The <a href="http://dev.w3.org/geo/api/spec-source.html">W3C
+Geolocation API</a> is a very exciting spec that allows applications to access
+<abbr title="Global Positioning System">GPS</abbr> information. It is,
+however, currently supported well across desktop browsers but not so
+reliably across mobile browers, and, because of the processor limitations
+on mobile devices, it seems counterproductive to use a whole separate API
+for this purpose. But, never fear — we can access precise GPS position
+using the WAC 1.0 API. In order to get information describing the
+device's current position, we need <code>onPositionRetrieved</code> and <code>requestPositionInfo</code>:
+</p>
+
+<pre><code>Widget.Device.DeviceStateInfo.onPositionRetrieved = function(position, method){
+    /* … */
+};
+
+Widget.Device.DeviceStateInfo.requestPositionInfo('gps');</code></pre>
+
+<p>After calling the above function, the device will get its position
+from the GPS if available: when the position is retrieved the callback <code>onPositionRetrieved</code>
+will be called. The position information will be contained in an object
+with following fields:</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><code>accuracy</code></td>
+			<td>Number</td>
+			<td>The horizontal accuracy of the position in meters - takes a
+			value of null if the information is not available</td>
+		</tr>
+		<tr>
+			<td><code>altitude</code></td>
+			<td>Number</td>
+			<td>the altitude in meters, using the World Geodetic System 1984
+			(WGS84) datum</td>
+		</tr>
+		<tr>
+			<td><code>altitudeAccuracy</code></td>
+			<td>Number</td>
+			<td>The vertical accuracy of the position in meters - takes a
+			value of null if the information is not available</td>
+		</tr>
+		<tr>
+			<td><code>cellID</code></td>
+			<td>Number</td>
+			<td>This is the id of the cell, defined when using GSM or AGPS.</td>
+		</tr>
+		<tr>
+			<td><code>latitude</code></td>
+			<td>Number</td>
+			<td>The latitude in degrees, using the World Geodetic System
+			1984 (WGS84) datum</td>
+		</tr>
+		<tr>
+			<td><code>longitude</code></td>
+			<td>Number</td>
+			<td>The longitude in degrees, using the World Geodetic System
+			1984 (WGS84) datum</td>
+		</tr>
+		<tr>
+			<td><code>timeStamp</code></td>
+			<td>Date</td>
+			<td>The time when the location data was established</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>Using this information, we could, for example, display our current
+position on a map. <a href="http://widgets.opera.com/widget/21184/" target="_blank">Download
+a working position Info demo, with sources</a>.</p>
+
+</body>
+</html>

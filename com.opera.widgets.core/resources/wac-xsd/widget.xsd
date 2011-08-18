@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Widgets 1.0 (Working Draft) RELAX NG schema -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	targetNamespace="http://www.w3.org/ns/widgets"
+	xmlns:its="http://www.w3.org/2005/11/its"
+	xmlns:widgets="http://www.w3.org/ns/widgets"
+	xmlns:common="http://www.w3.org/2005/11/common"
+	xmlns:jil="http://www.jil.org/ns/widgets1.2">
+
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="http://www.w3.org/2005/11/its" schemaLocation="its.xsd"/>
+  <xs:import namespace="http://www.w3.org/2005/11/common" schemaLocation="widgetcommon.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <xs:import namespace="http://www.jil.org/ns/widgets1.2" schemaLocation="jilwidget.xsd"/>
+
+  <xs:group name="extension">
+    <xs:sequence>
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="common:anyElement"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:attributeGroup name="extension">
+    <xs:attributeGroup ref="common:attr.allowed"/>
+  </xs:attributeGroup>
+
+  <xs:element name="widget">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="widgets:name"/>
+        <xs:element ref="widgets:description"/>
+        <xs:element ref="widgets:icon"/>
+        <xs:element ref="widgets:author"/>
+        <xs:element ref="widgets:license"/>
+        <xs:element ref="widgets:content"/>
+        <xs:element ref="widgets:feature"/>
+        <xs:element ref="widgets:access"/>
+        <xs:element ref="widgets:preference"/>
+        <xs:group   ref="widgets:extension"/>
+        <xs:element ref="jil:access"/>
+        <xs:element ref="jil:billing"/>
+        <xs:element ref="jil:maximum_display_mode"/>
+        <xs:element ref="jil:update"/>
+      </xs:choice>
+      <xs:attribute ref="xml:lang"/>
+      <xs:attribute name="id" type="xs:anyURI"/>
+      <xs:attribute name="version"/>
+      <xs:attribute name="height" type="common:data.positiveNumber"/>
+      <xs:attribute name="width" type="common:data.positiveNumber"/>
+      <xs:attribute name="viewmodes">
+        <xs:simpleType>
+          <xs:list>
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="windowed"/>
+                <xs:enumeration value="floating"/>
+                <xs:enumeration value="fullscreen"/>
+                <xs:enumeration value="maximized"/>
+                <xs:enumeration value="minimized"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:list>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attributeGroup ref="widgets:extension"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name">
+    <xs:complexType mixed="true">
+      <xs:group ref="widgets:extension"/>
+      <xs:attribute ref="xml:lang"/>
+      <xs:attribute ref="its:dir"/>
+      <xs:attribute name="short"/>
+      <xs:attributeGroup ref="widgets:extension"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="description">
+    <xs:complexType mixed="true">
+      <xs:group ref="widgets:extension"/>
+      <xs:attribute ref="xml:lang"/>
+      <xs:attribute ref="its:dir"/>
+      <xs:attributeGroup ref="widgets:extension"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="icon">
+    <xs:complexType>
+      <xs:attributeGroup ref="common:attr.allowed"/>
+      <xs:attribute name="src" use="required" type="xs:anyURI"/>
+      <xs:attribute name="height" type="common:data.positiveNumber"/>
+      <xs:attribute name="width" type="common:data.positiveNumber"/>
+      <xs:attribute ref="xml:lang" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="author">
+    <xs:complexType mixed="true">
+      <xs:group ref="widgets:extension"/>
+      <xs:attribute ref="its:dir"/>
+      <xs:attribute name="href" type="xs:anyURI"/>
+      <xs:attribute name="email">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value=".+@.+"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attributeGroup ref="widgets:extension"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="license">
+    <xs:complexType mixed="true">
+      <xs:group ref="widgets:extension"/>
+      <xs:attribute ref="xml:lang"/>
+      <xs:attribute ref="its:dir"/>
+      <xs:attribute name="href" type="xs:anyURI"/>
+      <xs:attributeGroup ref="widgets:extension"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="content">
+    <xs:complexType>
+      <xs:attributeGroup ref="common:attr.allowed"/>
+      <xs:attribute name="src" use="required" type="xs:anyURI"/>
+      <xs:attribute name="type"/>
+      <xs:attribute name="encoding"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="feature">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="widgets:param"/>
+        <xs:group ref="widgets:extension"/>
+      </xs:choice>
+      <xs:attribute name="name" use="required" type="xs:anyURI"/>
+      <xs:attribute name="required" type="common:data.boolean" default="true"/>
+      <xs:attributeGroup ref="widgets:extension"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="param">
+    <xs:complexType mixed="true">
+      <xs:group ref="widgets:extension"/>
+      <xs:attribute name="name" use="required"/>
+      <xs:attribute name="value" use="required"/>
+      <xs:attributeGroup ref="widgets:extension"/>
+    </xs:complexType>
+  </xs:element>
+
+<xs:element name="access">
+    <xs:complexType>
+      <xs:attribute name="origin" use="required">
+        <xs:simpleType>
+          <xs:union memberTypes="xs:anyURI">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="*"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:union>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="subdomains" type="common:data.boolean" use="optional" default="false"/>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="preference">
+    <xs:complexType mixed="true">
+      <xs:group ref="widgets:extension"/>
+      <xs:attribute name="name" use="required"/>
+      <xs:attribute name="value" use="optional"/>
+      <xs:attribute name="readonly" type="common:data.boolean" use="optional" default="false"/>
+      <xs:attributeGroup ref="widgets:extension"/>
+    </xs:complexType>
+  </xs:element>
+
+
+
+</xs:schema>

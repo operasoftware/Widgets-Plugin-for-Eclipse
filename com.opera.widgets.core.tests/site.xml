@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description name="Opera Widgets SDK Update Site" url="http://team.opera.com/widgets-sdk">
+      Update Site for Opera Widgets SDK.
+   </description>
+   <feature url="features/com.opera.widget.feature_1.0.0.201102110841.jar" id="com.opera.widget.feature" version="1.0.0.201102110841">
+      <category name="WidgetsSDK"/>
+   </feature>
+   <category-def name="WidgetsSDK" label="Widgets SDK">
+      <description>
+         Widgets Plugin for Eclipse is a tool that simplifies Widget development process by enabling developers to quickly create Widget project, implement some code and run it in an emulator. With Widget Plugin there is no need for developer to know Widget specification. It support both W3C and WAC standard and all features can be added easily by just few clicks.
+      </description>
+   </category-def>
+</site>

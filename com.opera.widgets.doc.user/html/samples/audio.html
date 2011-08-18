@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>AudioPlayer</title>
+</head>
+
+<body>
+<h2>AudioPlayer</h2>
+
+<p><code>AudioPlayer</code> is an object allowing us to control
+music playback, playing sounds over HTTP, HTTPS, RTSP or the file
+protocol. To play music (e.g., as background music for a game) we can do
+something simple like this:</p>
+
+<pre><code>Widget.Multimedia.AudioPlayer.onStateChange = function(state){
+    if (state == 'opened'){
+        Widget.Multimedia.AudioPlayer.play();
+    }
+}
+
+Widget.Multimedia.AudioPlayer.open('http://.../file.mp3');</code></pre>
+
+<p>Apart from opening the audio player and starting playback, you
+can also stop and pause/resume playback. These are all very similar
+methods. Just remember that these calls are executed asynchronously, so
+you need to define <code>onStateChange</code> callbacks to handle state
+changes of the player, when the following states occur:</p>
+
+<ul>
+	<li><code>opened</code> – when an audio file is loaded
+	successfully</li>
+	<li><code>playing</code> – when playback has started, after
+	calling <code>play()</code></li>
+	<li><code>stopped</code> – when playback has stopped, after
+	calling <code>stop()</code></li>
+	<li><code>completed</code> – when playback has stopped after
+	reaching the end of a track.</li>
+	<li><code>paused</code> – when playback is paused</li>
+</ul>
+
+<p><a href="http://widgets.opera.com/widget/21134/" target="_blank">Download
+a working audio player demo, with sources</a>.</p>
+</body>
+</html>

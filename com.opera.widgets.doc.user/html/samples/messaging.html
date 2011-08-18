@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Messaging</title>
+</head>
+
+<body>
+<h2>Messaging</h2>
+
+<p>Using the WAC 1.0 API, we can enable applications and widgets to
+send SMS, MMS and email messages. To do so, we need to create a <code>Message</code>
+object that will represent the message, like so:</p>
+
+<pre><code>//prepare a callback method in case sending has failed
+Widget.Messaging.onMessageSendingFailure = function(msg, error){
+    alert(“Sending failed!\n”+error);
+}
+
+//choose message type
+var messageType =  Widget.Messaging.MessageTypes.SMSMessage;
+
+//create message
+var message = Widget.Messaging.createMessage(messageType);
+
+//set needed properties
+message.addAddress('destination','phone number');
+message.body = 'body can be any text';
+
+//send message
+Widget.Messaging.sendMessage(message);</code></pre>
+
+<p>Remember that our users may be charged by their carriers for
+sending messages depending on their plan and connection type. Sending
+email when connected through Wi-Fi will be free, but sending MMS probably
+will probably incur costs. It sounds like an obvious point, but we should
+keep that in mind when developing applications and make sure our users are
+informed.</p>
+
+<p><a href="http://widgets.opera.com/widget/21154/" target="_blank">Download a
+working messaging demo, with sources</a>.</p>
+</body>
+</html>
